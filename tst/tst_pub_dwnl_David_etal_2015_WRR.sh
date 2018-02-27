@@ -35,11 +35,10 @@
 #Dennis Lettenmaier, Victor Koren, Qingyun Duan, Kingtse Mo, Yun Fan, and David 
 #Mocko (2012), Continental-scale water and energy flux analysis and validation 
 #for the North American Land Data Assimilation System project phase 2 (NLDAS-2).
-#ftp://hydro1.sci.gsfc.nasa.gov/data/s4pa/NLDAS/
+#https://hydro1.sci.gsfc.nasa.gov/data/s4pa/NLDAS/
 #and from:
 #Lehner, Bernhard, Kristine Verdin, and Andy Jarvis (2008), New Global 
-#Hydrography Derived From Spaceborne Elevation Data, Eos Trans. AGU, 89(10), 
-#93–94.
+#Hydrography Derived From Spaceborne Elevation Data:
 #http://earlywarning.usgs.gov/hydrodata/sa_shapefiles_zip
 #The script returns the following exit codes
 # - 0  if all downloads are successful 
@@ -64,7 +63,7 @@
 #*******************************************************************************
 echo "********************"
 echo "Downloading files from:   http://dx.doi.org/xx.xxxx/xxxxxx"
-echo "                          ftp://hydro1.sci.gsfc.nasa.gov/data/s4pa/NLDAS/"
+echo "                          https://hydro1.sci.gsfc.nasa.gov/data/s4pa/NLDAS/"
 echo "                          http://earlywarning.usgs.gov/hydrodata/sa_shapefiles_zip"
 echo "which correspond to   :   http://dx.doi.org/10.1002/2014WR016650"
 echo "                          http://dx.doi.org/10.1029/2011JD016048"
@@ -239,7 +238,8 @@ unzip -nq ../input/HydroSHEDS/na_riv_15s.zip -d ../input/HydroSHEDS/
 if [ $? -gt 0 ] ; then echo "Problem converting" >&2 ; exit 22 ; fi
 fi
 
-if [ "$dwnl" == "rrr" ] || [ "$dwnl" == "" ]; then
+if [ "$dwnl" == "rrr" ] || [ "$dwnl" == "" ] ||                                \
+   [ "$dwnl" == "hydrosheds" ]; then
 unzip -nq ../output/HSmsp_WRR/bas_HSmsp.zip -d ../output/HSmsp_WRR/
 if [ $? -gt 0 ] ; then echo "Problem converting" >&2 ; exit 22 ; fi
 unzip -nq ../output/HSmsp_WRR/riv_HSmsp.zip -d ../output/HSmsp_WRR/
